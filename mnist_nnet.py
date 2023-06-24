@@ -15,9 +15,11 @@ test_data = test_data/255
 train_labels = np.array(train_labels).T
 test_labels = np.array(test_labels).T
 _,m = train_data.shape
-number_of_nodes = 20
-number_of_classes = 10
+number_of_nodes = 45
+number_of_classes = test_labels.max() + 1
 input_n = test_data.shape[0]
+alpha = 0.10
+epochs = 500
 
 
 def init_params():
@@ -86,7 +88,7 @@ def gradient_descent(X, Y, alpha, iterations):
             print(get_accuracy(predictions, Y))
     return W1, b1, W2, b2
     
-W1, b1, W2, b2 = gradient_descent(train_data, train_labels, 0.10, 500)
+W1, b1, W2, b2 = gradient_descent(train_data, train_labels, alpha, epochs)
 
 def make_predictions(X, W1, b1, W2, b2):
     _,_,_,A2 = forward_prop(W1, b1, W2, b2, X)
