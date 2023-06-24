@@ -1,7 +1,4 @@
-from keras import models
-from keras import layers
 from keras.datasets import mnist
-from keras.utils import to_categorical
 import numpy as np
 from matplotlib import pyplot as plt
 
