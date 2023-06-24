@@ -15,14 +15,16 @@ test_data = test_data/255
 train_labels = np.array(train_labels).T
 test_labels = np.array(test_labels).T
 _,m = train_data.shape
-
+number_of_nodes = 20
+number_of_classes = 10
+input_n = test_data.shape[0]
 
 
 def init_params():
-    W1 = np.random.rand(10, 784) - 0.5
-    b1 = np.random.rand(10, 1) - 0.5
-    W2 = np.random.rand(10, 10) - 0.5
-    b2 = np.random.rand(10, 1) - 0.5
+    W1 = np.random.rand(number_of_nodes, input_n) - 0.5
+    b1 = np.random.rand(number_of_nodes, 1) - 0.5
+    W2 = np.random.rand(number_of_classes, number_of_nodes) - 0.5
+    b2 = np.random.rand(number_of_classes, 1) - 0.5
     return W1, b1, W2, b2
 
 def ReLU(Z):
